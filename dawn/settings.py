@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -23,10 +26,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hours.apps.HoursConfig',
+    'account.apps.AccountConfig',
+    'tailwind',
+    'theme',
+    'crispy_forms',
+    'crispy_tailwind',
+]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
+CRISPY_TEMPLATE_PACK = 'tailwind'
+
+# Needed for Tailwind
+TAILWIND_APP_NAME = 'theme'
+
+# Needed for Tailwind
+INTERNAL_IPS = [
+    '127.0.0.1',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -40,7 +61,7 @@ ROOT_URLCONF = 'dawn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'dawn/templates'],  # noqa
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -52,6 +73,10 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/hours/'
+LOGOUT_REDIRECT_URL = '/hours/'
 
 WSGI_APPLICATION = 'dawn.wsgi.application'
 

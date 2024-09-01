@@ -1,6 +1,6 @@
 # from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 
-def index(request):
-    return HttpResponse("Hi! You're at the volunteer hours index.")
+class IndexView(TemplateView):
+    template_name = 'hours/index.html'

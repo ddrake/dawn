@@ -7,7 +7,6 @@ from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str  # force_text on older versions of Django
 
 from .forms import RegistrationForm, token_generator, user_model
-from main.models.util import has_farm_years
 
 
 class RegistrationView(CreateView):

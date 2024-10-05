@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from hours.views import HoursIndexView
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('', include('account.urls')),
     path('hours/', include('hours.urls')),
     path('admin/', admin.site.urls),
+    path('', HoursIndexView.as_view(), name="hours_list"),
     path('__reload__/', include('django_browser_reload.urls')),
 ]

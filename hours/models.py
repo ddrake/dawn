@@ -81,7 +81,7 @@ class Hours(models.Model):
 
     date = models.DateField(default=datetime.today,
                             validators=[MinVal(date(date.today().year, 1, 1)),
-                                        MaxVal(date(date.today().year, 12, 31))],
+                                        MaxVal(date.today())],
                             verbose_name=_('Date'),
                             help_text=_('The date the task was performed.'))
 
@@ -104,18 +104,6 @@ class Hours(models.Model):
             raise ValidationError({'hours': _(
                 "A maximum of 24 hours can be logged for a given date")},
                                   code="max_hours")
-
-        if date.today().year != Hours.get_current_year():
-            print(f"{date.today().year=}")
-            print(f"{Hours.get_current_year()=}")
-            raise ValidationError({'date': _(
-                "Hours can only be added for dates in the current year")},
-                                  code="current_year")
-
-        if self.date > date.today():
-            raise ValidationError({'date': _(
-                "hours cannot be added for future dates")},
-                                  code="not_future")
 
     def delete(self, **kwargs):
         if self.date.year != Hours.get_current_year():

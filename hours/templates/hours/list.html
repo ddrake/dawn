@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Hours</title>
+{% endblock title %}
+{% block content %}
+<div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+  <div>
+    <h1 class="mb-1 text-2xl font-medium text-black">Hours</h1>
+    {% if hours_list %}
+      <table>
+      <thead>
+        <th>Date</th>
+        <th>Task</th>
+        <th>Hours</th>
+        <th colspan="2">Action</th>
+      </thead>
+      <tbody>
+      {% for h in hours_list %}
+      <tr>
+        <td>{{ h.date|date:"m-d-Y" }}</td>
+        <td class="px-2">{{ h.task }}</td>
+        <td class="px-2">{{ h.hours }}</td>
+        <td class="px-2">
+        <a class="px-2 text-blue-800 hover:text-blue-600"
+           href="{% url 'hours_update' pk=h.pk %}">Edit</a>
+        </td>
+        <td>
+        <a class="text-red-800 hover:text-red-600"
+           href="{% url 'hours_delete' pk=h.pk %}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+    {% else %}
+    <p class="mb-1 text-base font-medium text-black">
+      You don't have any hours entered for this year yet.  Please add some!</p>
+    {% endif %}
+    <div class="mt-2">
+    <a class="text-xl text-indigo-800 hover:text-indigo-600"
+      href="{% url 'hours_create' %}">Add hours</a> 
+    </div>
+  </div>
+</div>
+{% endblock %}

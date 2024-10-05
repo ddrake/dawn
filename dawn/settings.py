@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'tailwind',
     'theme',
+    'django_browser_reload',
     'crispy_forms',
     'crispy_tailwind',
 ]

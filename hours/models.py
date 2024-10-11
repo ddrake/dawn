@@ -90,7 +90,7 @@ class Hours(models.Model):
                             verbose_name=_('Date'),
                             help_text=_('The date the task was performed.'))
 
-    hours = models.FloatField(default=0, validators=[MinVal(0), MaxVal(24)],
+    hours = models.FloatField(default=0, validators=[MinVal(0.25), MaxVal(24)],
                               verbose_name=_('Hours'),
                               help_text=_('The hours worked on this task/day'))
 

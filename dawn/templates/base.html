@@ -39,6 +39,22 @@
         <a href="https://dawnus.org/" target="_blank"
           class="text-xl text-teal-500 hover:text-white">
           DAWN</a>
+        <div class="ml-4">
+          <form action="{% url 'set_lang' %}" method="POST" name="set_lang" value="set_lang"
+            class="inline-block">
+            {% csrf_token %}
+            <select id="lang" name="lang">
+              <option
+                {% if request.COOKIES.django_language == "us-en" %} selected {% endif %}
+                value="en-us"
+                >English (англійська)</option>
+              <option
+                {% if request.COOKIES.django_language == "uk" %} selected {% endif %}
+                value="uk"
+                >Ukranian (українська)</option>
+            </select>
+          </form>
+        </div>
       </div>
 
       <div class="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
@@ -54,21 +70,6 @@
         </div>
         <div>
           {% if user.is_authenticated %}
-            <form action="{% url 'set_lang' %}" method="POST" name="set_lang" value="set_lang"
-              class="inline-block">
-              {% csrf_token %}
-              <select id="lang" name="lang">
-                <option
-                  {% if request.session.django_language == "us-en" %} selected {% endif %}
-                  value="en-us"
-                  >English (англійська)</option>
-                <option
-                  {% if request.session.django_language == "uk" %} selected {% endif %}
-                  value="uk"
-                  >Ukranian (українська)</option>
-              </select>
-            </form>
-            &nbsp;
             <span class="mt-4 text-white">{% translate "User" %}: {{user}}</span>
             <form action="{% url 'logout' %}" method="POST" name="logout" value="logout"
               class="inline-block">
@@ -102,6 +103,7 @@
 			</section>
 		</div>
     <footer class="px-4 py-2 bg-gray-800 text-xs text-left text-white print:hidden">
+      <!-- why isn't Copyright translating?  It's in the .po file. -->
       <span class="mx-4">{% translate "Copyright" %} &copy; {% now 'Y' %} DAWN.</span>
     </footer>
     </div>

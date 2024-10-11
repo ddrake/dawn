@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}
-<title>{% translate "Hours"</title>
+<title>{% translate "Hours" %}</title>
 {% endblock title %}
 {% block content %}
 <div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
   <div>
-    <h1 class="mb-1 text-2xl font-medium text-black">Hours</h1>
+    <h1 class="mb-1 text-2xl font-medium text-black">{% translate "Hours" %}</h1>
     {% if hours_list %}
       <table>
       <thead>
@@ -25,11 +25,11 @@
         <td class="px-2">{{ h.hours }}</td>
         <td class="px-2">
         <a class="px-2 text-blue-800 hover:text-blue-600"
-           href="{% url 'hours_update' pk=h.pk %}">Edit</a>
+           href="{% url 'hours_update' pk=h.pk %}">{% translate "Edit" %}</a>
         </td>
         <td>
         <a class="text-red-800 hover:text-red-600"
-           href="{% url 'hours_delete' pk=h.pk %}">Delete</a>
+           href="{% url 'hours_delete' pk=h.pk %}">{% translate "Delete" %}</a>
         </td>
       </tr>
       {% endfor %}

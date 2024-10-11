@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load tailwind_filters crispy_forms_tags %}
+{% load i18n %}
 {% block title %}
-<title>Edit Hours</title>
+<title>{% translate "Edit Hours" %}</title>
 {% endblock title %}
 {% block content %}
 <div class="flex flex-col gap-y-4">

@@ -1,7 +1,7 @@
 from datetime import datetime, date
 
 from django.db import models
-from django.db.models import Sum
+from django.db.models import Sum, Prefetch
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
@@ -20,15 +20,20 @@ class Task(models.Model):
 
     @staticmethod
     def tasks_for_language(language):
-        print(f"{language=}")
-        tasks = Task.objects.select_related().all()
-        for task in tasks:
-            # Replace the default task name with its translation.
-            task.name = task.translations.filter(language=language)[0].name
+        tasks = Task.objects.prefetch_related(Prefetch(
+            'translations',
+            queryset=TaskTranslation.objects.filter(language=language)))
         return tasks
 
     def __str__(self):
-        return self.name
+        # Todo: think about this.  It's currently only used for choice labels,
+        # in which case, the queryset contains only records for one language.
+        # In cases where queryset contains multiple translations, we simply
+        # sort by language for consistency.
+        # The ListView template specifies {{ task.name }}, rather than {{task}}
+        # because we need to avoid calling this method in that case.
+        rslt = self.translations.all().order_by('language')[0].name
+        return rslt
 
     class Meta:
         ordering = ['name']
@@ -107,7 +112,6 @@ class Hours(models.Model):
 
     def delete(self, **kwargs):
         if self.date.year != Hours.get_current_year():
-            print("validation error on delete")
             raise ValidationError(
                 _("Only hours in the current year can be deleted"), code="current_year")
         else:

@@ -15,14 +15,13 @@ class HoursForm(ModelForm):
     def __init__(self, *args, **kwargs):
         lang = kwargs.pop('language')
         super().__init__(*args, **kwargs)
-        # if lang is not None:
         tasks = Task.tasks_for_language(lang)
         self.fields['task'].queryset = tasks
         self.helper = FormHelper()
         self.helper.attrs = {"novalidate": ''}
         self.helper.form_id = 'hoursform'
         self.helper.layout = Layout(
-            Fieldset('Volunteer Hours',
+            Fieldset(_('Volunteer Hours'),
                      'date', 'task', 'hours',
                      Field('user', type='hidden'),
                      )
@@ -53,7 +52,6 @@ class HoursUpdateForm(HoursForm):
         self.helper.add_input(Submit('submit', _('Update')))
 
 
-# TODO: try this, so we can raise a ValidationError if the year doesn't match
 class HoursDeleteForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -13,7 +13,6 @@ from .forms import HoursCreateForm, HoursUpdateForm
 class SetLangView(View):
     def post(self, request, *args, **kwargs):
         lang = request.POST.get('lang', 'en-us')
-        print(f"{lang=}")
         request.session['django_language'] = lang
         return redirect(reverse('hours_list'))
 
@@ -22,13 +21,11 @@ class HoursIndexView(LoginRequiredMixin, ListView):
     template_name = 'hours/list.html'
 
     def get_queryset(self):
+        # TODO: try to handle this in a cleaner way using nested Prefetch
         language = self.request.session.get('django_language', 'en-us')
-        print(f"{language=}")
-        hours = Hours.objects.select_related().filter(
+        hours = Hours.objects.filter(
             user_id=self.request.user.pk, date__year=datetime.now().year)
         for h in hours:
-            print(f"{h=}")
-            print(f"{h.task_id=}")
             h.task.name = h.task.translations.filter(
                 language=language)[0].name
         return hours
@@ -46,18 +43,17 @@ class HoursCreateView(LoginRequiredMixin, CreateView):
         obj = self.get_object()
         return self.request.user == obj.user
 
-    def get(self, request, *args, **kwargs):
-        self.extra_context = {'language': request.session.get('language', 'en-us')}
-        print(f"{self.extra_context=}")
-        return super().get(request, *args, **kwargs)
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'language':
+                       self.request.session.get('django_language', 'en-us')})
+        return kwargs
 
     def get_initial(self):
-        if self.extra_context:
-            return {
-                'language': self.extra_context['language'],
-                'user': self.request.user,
-                'hours': 1
-            }
+        return {
+            'user': self.request.user,
+            'hours': 1
+        }
 
 
 class HoursUpdateView(UserPassesTestMixin, UpdateView):
@@ -70,19 +66,17 @@ class HoursUpdateView(UserPassesTestMixin, UpdateView):
         obj = self.get_object()
         return self.request.user == obj.user
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'language':
+                       self.request.session.get('django_language', 'en-us')})
+        return kwargs
+
 
 class HoursDeleteView(UserPassesTestMixin, DeleteView):
     model = Hours
-    # form_class = HoursDeleteForm
     success_url = reverse_lazy('hours_list')
 
     def test_func(self):
         obj = self.get_object()
         return self.request.user == obj.user
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     user = context['view'].request.user
-    #     hasfarmyears = has_farm_years(user)
-    #     context['has_farm_years'] = hasfarmyears
-    #     return context

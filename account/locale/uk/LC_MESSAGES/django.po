@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 02:31+0000\n"
+"POT-Creation-Date: 2024-10-11 03:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,72 +20,74 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-#: account/templates/registration/login.html:4
+
+#: account/templates/registration/login.html:5
 msgid "Log In"
-msgstr ""
+msgstr "Увійти"
 
-#: account/templates/registration/login.html:9
+#: account/templates/registration/login.html:10
 msgid "Login to Manage Hours"
-msgstr ""
+msgstr "Увійдіть, щоб керувати годинами"
 
-#: account/templates/registration/password_change_done.html:3
+#: account/templates/registration/password_change_done.html:4
 msgid "Password changed"
-msgstr ""
-
-#: account/templates/registration/password_change_done.html:8
-#: account/templates/registration/password_reset_complete.html:8
-msgid "Password reset complete"
-msgstr ""
+msgstr "Пароль змінено"
 
 #: account/templates/registration/password_change_done.html:9
+#: account/templates/registration/password_reset_complete.html:9
+msgid "Password reset complete"
+msgstr "Скидання пароля завершено"
+
+#: account/templates/registration/password_change_done.html:10
 msgid "Your password has been changed. You can"
 msgstr "Ваш пароль змінено. Ви можете"
 
-#: account/templates/registration/password_change_form.html:4
-#: account/templates/registration/password_change_form.html:9
-#: account/templates/registration/password_change_form.html:13
-#: account/templates/registration/password_reset_confirm.html:9
-#: account/templates/registration/password_reset_confirm.html:13
+#: account/templates/registration/password_change_form.html:5
+#: account/templates/registration/password_change_form.html:10
+#: account/templates/registration/password_change_form.html:14
+#: account/templates/registration/password_reset_confirm.html:10
+#: account/templates/registration/password_reset_confirm.html:14
 msgid "Change Password"
 msgstr "Змінити пароль"
 
-#: account/templates/registration/password_reset_complete.html:3
+#: account/templates/registration/password_reset_complete.html:4
 msgid "Reset complete"
 msgstr "Скидання завершено"
 
-#: account/templates/registration/password_reset_complete.html:9
+#: account/templates/registration/password_reset_complete.html:10
 msgid "Your new password has been set. You can"
 msgstr "Ваш новий пароль установлено. Ви можете"
 
-#: account/templates/registration/password_reset_complete.html:11
+#: account/templates/registration/password_reset_complete.html:12
 msgid "log in"
 msgstr "увійти"
 
-#: account/templates/registration/password_reset_confirm.html:4
+#: account/templates/registration/password_reset_confirm.html:5
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: account/templates/registration/password_reset_done.html:3
+#: account/templates/registration/password_reset_done.html:4
 msgid "Link sent"
 msgstr "Посилання надіслано"
 
-#: account/templates/registration/password_reset_done.html:8
+#: account/templates/registration/password_reset_done.html:9
 msgid "Please check your inbox (and junk mail)"
 msgstr "Будь ласка, перевірте свою поштову скриньку (і небажану пошту)"
 
-#: account/templates/registration/password_reset_done.html:9
+#: account/templates/registration/password_reset_done.html:10
 msgid "We've emailed you a link for resetting your password"
 msgstr "Ми надіслали вам електронною поштою посилання для зміни пароля"
 
-#: account/templates/registration/password_reset_form.html:4
+#: account/templates/registration/password_reset_form.html:5
 msgid "Reset password"
 msgstr "Скинути пароль"
 
-#: account/templates/registration/password_reset_form.html:9
-#: account/templates/registration/password_reset_form.html:16
+#: account/templates/registration/password_reset_form.html:10
+#: account/templates/registration/password_reset_form.html:17
 msgid "Reset Password"
 msgstr "Скинути пароль"
 
-#: account/templates/registration/password_reset_form.html:11
+#: account/templates/registration/password_reset_form.html:12
 msgid "Fill in your email address and we'll send you a password reset link"
-msgstr "Заповніть свою електронну адресу, і ми надішлемо вам посилання для зміни пароля"
+msgstr "Заповніть свою електронну адресу, і ми надішлемо вам посилання для зміни "
+"пароля"

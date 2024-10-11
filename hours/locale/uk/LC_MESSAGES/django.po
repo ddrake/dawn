@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 00:59+0000\n"
+"POT-Creation-Date: 2024-10-11 03:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: hours/forms.py:47
 msgid "Create"
 msgstr "Створити"
@@ -40,7 +41,7 @@ msgstr "Назва завдання"
 msgid "The English name of the task"
 msgstr "Англійська назва завдання"
 
-#: hours/models.py:47 hours/models.py:83 hours/templates/hours/list.html:13
+#: hours/models.py:47 hours/models.py:83 hours/templates/hours/list.html:14
 msgid "Task"
 msgstr "Назва"
 
@@ -51,7 +52,6 @@ msgstr "Завдання на переклад"
 #: hours/models.py:53
 msgid "The name of the task"
 msgstr "Назва завдання"
-
 
 #: hours/models.py:56
 msgid "Language"
@@ -73,7 +73,7 @@ msgstr "Користувач, який виконав завдання"
 msgid "The task performed"
 msgstr "Завдання виконано"
 
-#: hours/models.py:90 hours/templates/hours/list.html:12
+#: hours/models.py:90 hours/templates/hours/list.html:13
 msgid "Date"
 msgstr "Дата"
 
@@ -81,7 +81,7 @@ msgstr "Дата"
 msgid "The date the task was performed."
 msgstr "Дата виконання завдання"
 
-#: hours/models.py:94 hours/templates/hours/list.html:14
+#: hours/models.py:94 hours/templates/hours/list.html:15
 msgid "Hours"
 msgstr "години"
 
@@ -97,18 +97,29 @@ msgstr "Для певної дати можна зареєструвати ма�
 msgid "Only hours in the current year can be deleted"
 msgstr "Можна видалити лише години поточного року"
 
-#: hours/templates/hours/form.html:17
+#: hours/templates/hours/form.html:6
+#, fuzzy
+#| msgid "Hours"
+msgid "Edit Hours"
+msgstr "години"
+
+#: hours/templates/hours/form.html:18
 msgid "Back to list"
 msgstr "Назад до списку"
 
-#: hours/templates/hours/list.html:15
+#: hours/templates/hours/hours_confirm_delete.html:5
+msgid "Confirm deletion"
+msgstr "Підтвердити видалення"
+
+#: hours/templates/hours/list.html:16
 msgid "Action"
 msgstr "Дія"
 
-#: hours/templates/hours/list.html:39
+#: hours/templates/hours/list.html:40
 msgid "You don't have any hours entered for this year yet.  Please add some!"
-msgstr "У вас ще немає введених годин для цього року.  Будь ласка, додайте трохи!"
-
-#: hours/templates/hours/list.html:43
-msgid "Add hours"
 msgstr ""
+"У вас ще немає введених годин для цього року.  Будь ласка, додайте трохи!"
+
+#: hours/templates/hours/list.html:44
+msgid "Add hours"
+msgstr "Додайте години"

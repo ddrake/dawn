@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 from pathlib import Path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -102,6 +103,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+LOCALE_PATHS = [
+    BASE_DIR / 'dawn',
+    BASE_DIR / 'account',
+    BASE_DIR / 'hours',
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -117,6 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+STATICFILES_DIRS = [BASE_DIR / 'dawn/static']
 STATIC_URL = 'static/'
 
 # Default primary key field type

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 03:00+0000\n"
+"POT-Creation-Date: 2024-10-11 20:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,26 +21,34 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
+#: dawn/settings.py:126
+msgid "Ukrainian"
+msgstr ""
+
+#: dawn/settings.py:127
+msgid "English"
+msgstr ""
+
 #: dawn/templates/base.html:7
 msgid "DAWN Apps"
 msgstr "Програми DAWN"
 
-#: dawn/templates/base.html:51
+#: dawn/templates/base.html:67
 msgid "Hours"
 msgstr "години"
 
-#: dawn/templates/base.html:72
+#: dawn/templates/base.html:73
 msgid "User"
 msgstr "Користувач"
 
-#: dawn/templates/base.html:78
+#: dawn/templates/base.html:79
 msgid "Log out"
 msgstr "Вийти"
 
-#: dawn/templates/base.html:86
+#: dawn/templates/base.html:87
 msgid "Log in"
 msgstr "авторизуватися"
 
-#: dawn/templates/base.html:105
+#: dawn/templates/base.html:106
 msgid "Copyright"
 msgstr "Авторське право"

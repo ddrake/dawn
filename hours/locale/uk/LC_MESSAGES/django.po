@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 03:00+0000\n"
+"POT-Creation-Date: 2024-10-11 20:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,19 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: hours/forms.py:47
+#: hours/forms.py:27
+msgid "Volunteer Hours"
+msgstr "Волонтерські години"
+
+#: hours/forms.py:50
 msgid "Create"
 msgstr "Створити"
 
-#: hours/forms.py:53
+#: hours/forms.py:56
 msgid "Update"
 msgstr "оновлення"
 
-#: hours/forms.py:60
+#: hours/forms.py:63 hours/templates/hours/list.html:32
 msgid "Delete"
 msgstr "Видалити"
 
@@ -81,7 +85,8 @@ msgstr "Дата"
 msgid "The date the task was performed."
 msgstr "Дата виконання завдання"
 
-#: hours/models.py:94 hours/templates/hours/list.html:15
+#: hours/models.py:94 hours/templates/hours/list.html:4
+#: hours/templates/hours/list.html:9 hours/templates/hours/list.html:15
 msgid "Hours"
 msgstr "години"
 
@@ -98,12 +103,11 @@ msgid "Only hours in the current year can be deleted"
 msgstr "Можна видалити лише години поточного року"
 
 #: hours/templates/hours/form.html:6
-#, fuzzy
-#| msgid "Hours"
 msgid "Edit Hours"
 msgstr "години"
 
 #: hours/templates/hours/form.html:18
+#: hours/templates/hours/hours_confirm_delete.html:22
 msgid "Back to list"
 msgstr "Назад до списку"
 
@@ -111,9 +115,21 @@ msgstr "Назад до списку"
 msgid "Confirm deletion"
 msgstr "Підтвердити видалення"
 
+#: hours/templates/hours/hours_confirm_delete.html:11
+msgid "Delete hours for"
+msgstr "Видалити години для"
+
+#: hours/templates/hours/hours_confirm_delete.html:15
+msgid "Confirm"
+msgstr "Підтвердити видалення"
+
 #: hours/templates/hours/list.html:16
 msgid "Action"
 msgstr "Дія"
+
+#: hours/templates/hours/list.html:28
+msgid "Edit"
+msgstr "Редагувати"
 
 #: hours/templates/hours/list.html:40
 msgid "You don't have any hours entered for this year yet.  Please add some!"

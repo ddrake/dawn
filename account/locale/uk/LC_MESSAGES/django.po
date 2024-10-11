@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 03:00+0000\n"
+"POT-Creation-Date: 2024-10-11 03:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,12 +22,17 @@ msgstr ""
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 #: account/templates/registration/login.html:5
+#: account/templates/registration/login.html:14
 msgid "Log In"
 msgstr "Увійти"
 
 #: account/templates/registration/login.html:10
 msgid "Login to Manage Hours"
 msgstr "Увійдіть, щоб керувати годинами"
+
+#: account/templates/registration/login.html:18
+msgid "Forgot username or password"
+msgstr "Забув ім'я користувача або пароль"
 
 #: account/templates/registration/password_change_done.html:4
 msgid "Password changed"
@@ -89,5 +94,6 @@ msgstr "Скинути пароль"
 
 #: account/templates/registration/password_reset_form.html:12
 msgid "Fill in your email address and we'll send you a password reset link"
-msgstr "Заповніть свою електронну адресу, і ми надішлемо вам посилання для зміни "
+msgstr ""
+"Заповніть свою електронну адресу, і ми надішлемо вам посилання для зміни "
 "пароля"

@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-11 02:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: account/templates/registration/login.html:4
+msgid "Log In"
+msgstr ""
+
+#: account/templates/registration/login.html:9
+msgid "Login to Manage Hours"
+msgstr ""
+
+#: account/templates/registration/password_change_done.html:3
+msgid "Password changed"
+msgstr ""
+
+#: account/templates/registration/password_change_done.html:8
+#: account/templates/registration/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr ""
+
+#: account/templates/registration/password_change_done.html:9
+msgid "Your password has been changed. You can"
+msgstr "Ваш пароль змінено. Ви можете"
+
+#: account/templates/registration/password_change_form.html:4
+#: account/templates/registration/password_change_form.html:9
+#: account/templates/registration/password_change_form.html:13
+#: account/templates/registration/password_reset_confirm.html:9
+#: account/templates/registration/password_reset_confirm.html:13
+msgid "Change Password"
+msgstr "Змінити пароль"
+
+#: account/templates/registration/password_reset_complete.html:3
+msgid "Reset complete"
+msgstr "Скидання завершено"
+
+#: account/templates/registration/password_reset_complete.html:9
+msgid "Your new password has been set. You can"
+msgstr "Ваш новий пароль установлено. Ви можете"
+
+#: account/templates/registration/password_reset_complete.html:11
+msgid "log in"
+msgstr "увійти"
+
+#: account/templates/registration/password_reset_confirm.html:4
+msgid "Change password"
+msgstr "Змінити пароль"
+
+#: account/templates/registration/password_reset_done.html:3
+msgid "Link sent"
+msgstr "Посилання надіслано"
+
+#: account/templates/registration/password_reset_done.html:8
+msgid "Please check your inbox (and junk mail)"
+msgstr "Будь ласка, перевірте свою поштову скриньку (і небажану пошту)"
+
+#: account/templates/registration/password_reset_done.html:9
+msgid "We've emailed you a link for resetting your password"
+msgstr "Ми надіслали вам електронною поштою посилання для зміни пароля"
+
+#: account/templates/registration/password_reset_form.html:4
+msgid "Reset password"
+msgstr "Скинути пароль"
+
+#: account/templates/registration/password_reset_form.html:9
+#: account/templates/registration/password_reset_form.html:16
+msgid "Reset Password"
+msgstr "Скинути пароль"
+
+#: account/templates/registration/password_reset_form.html:11
+msgid "Fill in your email address and we'll send you a password reset link"
+msgstr "Заповніть свою електронну адресу, і ми надішлемо вам посилання для зміни пароля"

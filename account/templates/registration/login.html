@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% load tailwind_filters %}
 {% block title %}
-<title>Log In</title>
+<title>{% translate "Log In" %}</title>
 {% endblock title %}
 {% block content %}
 <div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
     <div>
-        <h1 class="text-xl mb-2">Login to Manage Hours</h1>
+        <h1 class="text-xl mb-2">{% translate "Login to Manage Hours" %}</h1>
         <form action="" method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn-primary">Log In</button>
+            <button type="submit" class="btn-primary">{% translate "Log In"</button>
         </form>
         <div class="mt-3">
         <a class="text-xl text-indigo-700 hover:text-indigo-500"
-           href="{% url 'password_reset' %}">Forgot username or password</a>
+            href="{% url 'password_reset' %}">{% translate "Forgot username or password"</a>
         </div>
     </div>
 </div>

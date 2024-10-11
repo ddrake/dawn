@@ -3,29 +3,26 @@
 <html lang="en">
 	<head>
 		{% block title %}
-    <title>IFBT</title>
+    <title>{% translate "DAWN Apps" %}</title>
 		{% endblock %}
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" sizes="any" type="image/svg+xml"
+          href="{% static 'images/favicon.svg' %}">
     <link rel="apple-touch-icon" sizes="180x180"
-          href="{% static 'main/images/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" 
-          href="{% static 'main/images/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16"
-          href="{% static 'main/images/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'main/images/site.webmanifest' %}">
-    <link rel="mask-icon" href="{% static 'main/images/safari-pinned-tab.svg' %}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+          href="{% static 'images/apple-touch-icon.png' %}">
+    <!-- <meta name="msapplication-TileColor" content="#da532c"> -->
+    <!-- <meta name="theme-color" content="#ffffff"> -->
+    <!-- TODO: add Google analytics... -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3CM9FJ8Z0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-H3CM9FJ8Z0');
-    </script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3CM9FJ8Z0"></script> -->
+    <!-- <script> -->
+      <!-- window.dataLayer = window.dataLayer || []; -->
+      <!-- function gtag(){dataLayer.push(arguments);} -->
+      <!-- gtag('js', new Date()); -->
+      <!-- gtag('config', 'G-H3CM9FJ8Z0'); -->
+    <!-- </script> -->
 		{% tailwind_css %}
     {% block style %}
     {% endblock style %}
@@ -50,7 +47,7 @@
               href="{% url 'hours_list' %}"
               class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white text-lg mr-4"
             >
-              Hours
+            {% translate "Hours" %}
             </a>
           {% endif %}
         </div>
@@ -71,13 +68,13 @@
               </select>
             </form>
             &nbsp;
-            <span class="mt-4 text-white">User: {{user}}</span>
+            <span class="mt-4 text-white">{% translate "User" %}: {{user}}</span>
             <form action="{% url 'logout' %}" method="POST" name="logout" value="logout"
               class="inline-block">
               {% csrf_token %}
               <input
                 type="submit"
-                value="Log out"
+                value="{% translate "Log out" %}"
                 class="block mt-4 inline-block sm:mt-0 text-teal-200 hover:text-white ml-4"
                >
             </form>
@@ -85,7 +82,7 @@
             <a
               href="{% url 'login' %}"
               class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white ml-4"
-              >Log in</a
+              >{% translate "Log in" %}</a
             >
             <!-- <a -->
             <!--   href="{% url 'register' %}" -->
@@ -104,7 +101,7 @@
 			</section>
 		</div>
     <footer class="px-4 py-2 bg-gray-800 text-xs text-left text-white print:hidden">
-      <span class="mx-4">Copyright &copy; {% now 'Y' %} DAWN.</span>
+      <span class="mx-4">{% translate "Copyright" %} &copy; {% now 'Y' %} DAWN.</span>
     </footer>
     </div>
 	</body>

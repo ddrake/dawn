@@ -13,8 +13,9 @@ from .forms import HoursCreateForm, HoursUpdateForm
 class SetLangView(View):
     def post(self, request, *args, **kwargs):
         lang = request.POST.get('lang', 'en-us')
-        request.session['django_language'] = lang
-        return redirect(reverse('hours_list'))
+        response = redirect(reverse('hours_list'))
+        response.set_cookie('django_language', lang)
+        return response
 
 
 class HoursIndexView(LoginRequiredMixin, ListView):
@@ -22,7 +23,7 @@ class HoursIndexView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         # TODO: try to handle this in a cleaner way using nested Prefetch
-        language = self.request.session.get('django_language', 'en-us')
+        language = self.request.COOKIES.get('django_language', 'en-us')
         hours = Hours.objects.filter(
             user_id=self.request.user.pk, date__year=datetime.now().year)
         for h in hours:
@@ -46,7 +47,7 @@ class HoursCreateView(LoginRequiredMixin, CreateView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs.update({'language':
-                       self.request.session.get('django_language', 'en-us')})
+                       self.request.COOKIES.get('django_language', 'en-us')})
         return kwargs
 
     def get_initial(self):
@@ -69,7 +70,7 @@ class HoursUpdateView(UserPassesTestMixin, UpdateView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs.update({'language':
-                       self.request.session.get('django_language', 'en-us')})
+                       self.request.COOKIES.get('django_language', 'en-us')})
         return kwargs
 
 

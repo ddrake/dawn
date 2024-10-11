@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -112,7 +114,18 @@ LOCALE_PATHS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
+FORMAT_MODULE_PATH = [
+    "dawn.formats",
+]
+
+DATE_FORMAT = "Y-m-d"
+
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+    ("uk", _("Ukrainian")),
+    ("en-us", _("English")),
+]
 
 TIME_ZONE = 'UTC'
 

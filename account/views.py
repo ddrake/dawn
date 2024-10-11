@@ -28,14 +28,12 @@ class RegistrationView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = context['view'].request.user
-        hasfarmyears = has_farm_years(user)
-        context['has_farm_years'] = hasfarmyears
         return context
 
 
 class ActivateView(RedirectView):
 
-    url = reverse_lazy('farmyears')
+    url = reverse_lazy('hours_list')
 
     # Custom get method
     def get(self, request, uidb64, token):
@@ -62,11 +60,8 @@ class DeleteAccountView(View):
     template_name = "account/confirm_delete.html"
 
     def get(self, request, *args, **kwargs):
-        print(f'{request.user=}')
-        print(f'{has_farm_years(request.user)=}')
-        return render(request, self.template_name,
-                      {'has_farm_years': has_farm_years(request.user)})
+        return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
         request.user.delete()
-        return redirect(reverse('index'))
+        return redirect(reverse('hours_list'))

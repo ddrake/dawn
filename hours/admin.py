@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from hours.models import Task, TaskTranslation
+from hours.models import Language, Task, TaskTranslation
 
 
 class TaskTranslationInline(admin.TabularInline):
@@ -17,4 +17,9 @@ class TaskAdmin(admin.ModelAdmin):
     ]
 
 
+class LanguageAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Language, LanguageAdmin)
 admin.site.register(Task, TaskAdmin)

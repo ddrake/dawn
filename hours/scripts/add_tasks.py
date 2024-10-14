@@ -5,10 +5,12 @@ mpy shell
 from hours.scripts import add_tasks
 add_tasks.create_tasks()
 """
-from hours.models import Task, TaskTranslation
+from hours.models import Language, Task, TaskTranslation
 
 
 def create_tasks():
+    en = Language.objects.create(name='en-us')
+    uk = Language.objects.create(name='uk')
     t1 = Task.objects.create(name='Grant writing & procurement')
     t2 = Task.objects.create(name="warehouse, shipment packaging")
     t3 = Task.objects.create(name="donations procurement")
@@ -25,98 +27,98 @@ def create_tasks():
     TaskTranslation.objects.create(
         task_id=t1.pk,
         name='Grant writing & procurement',
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t1.pk,
         name='Написання грантів',
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t2.pk,
         name="warehouse, shipment packaging",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t2.pk,
         name="склад, пакування для відправки",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t3.pk,
         name="donations procurement",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t3.pk,
         name="участь у зборі донатів( пожертвувань)",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t4.pk,
         name="social media",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t4.pk,
         name="соціальні мережі",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t5.pk,
         name="networking",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t5.pk,
         name="будування зв'язків та відносин",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t6.pk,
         name="finding funding sources",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t6.pk,
         name="пошук джерел фінансування",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t7.pk,
         name="administrative tasks",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t7.pk,
         name="адміністративні завдання",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t8.pk,
         name="shipping",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t8.pk,
         name="відправка",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t9.pk,
         name="events",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t9.pk,
         name="події/заходи",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t10.pk,
         name="writing (blogs, newsletters, reports, letters, etc...)",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t10.pk,
         name="написання (блогів, газет, звітів, листів і т.д.)",
-        language='uk')
+        language=uk)
 
     TaskTranslation.objects.create(
         task_id=t11.pk,
         name="other",
-        language='en-us')
+        language=en)
     TaskTranslation.objects.create(
         task_id=t11.pk,
         name="iнше",
-        language='uk')
+        language=uk)

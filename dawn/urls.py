@@ -17,40 +17,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth import views
 from django.urls import include, path
 from hours.views import HoursIndexView
-from account.views import MyLoginView, MyLogoutView
 
 urlpatterns = [
-    # path('', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
     # use explicit paths for login and logout for the overridden views
-    path("login/", MyLoginView.as_view(), name="login"),
-    path("logout/", MyLogoutView.as_view(), name="logout"),
-    path(
-        "password_change/", views.PasswordChangeView.as_view(), name="password_change"
-    ),
-    path(
-        "password_change/done/",
-        views.PasswordChangeDoneView.as_view(),
-        name="password_change_done",
-    ),
-    path("password_reset/", views.PasswordResetView.as_view(), name="password_reset"),
-    path(
-        "password_reset/done/",
-        views.PasswordResetDoneView.as_view(),
-        name="password_reset_done",
-    ),
-    path(
-        "reset/<uidb64>/<token>/",
-        views.PasswordResetConfirmView.as_view(),
-        name="password_reset_confirm",
-    ),
-    path(
-        "reset/done/",
-        views.PasswordResetCompleteView.as_view(),
-        name="password_reset_complete",
-    ),
     path('', include('account.urls')),
     path('hours/', include('hours.urls')),
     path('admin/', admin.site.urls),

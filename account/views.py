@@ -10,29 +10,6 @@ from django.utils.http import urlsafe_base64_decode
 
 from .forms import RegistrationForm, token_generator, user_model
 
-# Override the contrib auth LoginView to manage the session variable
-class MyLoginView(LoginView):
-    """Security check complete. Log the user in."""
-    def form_valid(self, form):
-        lang = self.request.COOKIES.get('django_language', 'en-us')
-        auth_login(self.request, form.get_user())
-        response = HttpResponseRedirect(self.get_success_url())
-        response.set_cookie('django_language', lang)
-        return response
-
-class MyLogoutView(LogoutView):
-    def post(self, request, *args, **kwargs):
-        """Logout may be done via POST."""
-        lang = self.request.COOKIES.get('django_language', 'en-us')
-        auth_logout(request)
-        redirect_to = self.get_success_url()
-        if redirect_to != request.get_full_path():
-            # Redirect to target page once the session has been cleared.
-            response = HttpResponseRedirect(redirect_to)
-            response.set_cookie('django_language', lang)
-            return response
-        return super().get(request, *args, **kwargs)
-
 class RegistrationView(CreateView):
     form_class = RegistrationForm
     template_name = 'account/register.html'

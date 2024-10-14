@@ -9,6 +9,15 @@ from django.core.validators import (
     MinValueValidator as MinVal, MaxValueValidator as MaxVal)
 
 
+class Language(models.Model):
+    """
+    A supported language
+    """
+    name = models.CharField(max_length=5,
+                            verbose_name=_('Language'),
+                            unique=True)
+
+
 class Task(models.Model):
     """
     A named task from a pre-defined list or null (unspecified).
@@ -32,8 +41,8 @@ class Task(models.Model):
         # sort by language for consistency.
         # The ListView template specifies {{ task.name }}, rather than {{task}}
         # because we need to avoid calling this method in that case.
-        rslt = self.translations.all().order_by('language')[0].name
-        return rslt
+        rslt = self.translations.all().order_by('language')
+        return rslt[0].name if rslt.count() > 0 else self.name
 
     class Meta:
         ordering = ['name']
@@ -52,9 +61,12 @@ class TaskTranslation(models.Model):
                             verbose_name=_('Task Name'),
                             help_text=_('The name of the task'))
 
-    language = models.CharField(max_length=5,
-                                verbose_name=_('Language'),
-                                help_text=_('Task name language'))
+    language = models.ForeignKey(Language, on_delete=models.CASCADE,
+                                 verbose_name=_('Language'),
+                                 help_text=_('Task name language'))
+
+    def __str__(self):
+        return f"{self.name} ({self.language})"
 
     class Meta:
         constraints = [

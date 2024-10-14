@@ -17,21 +17,26 @@ class Language(models.Model):
                             verbose_name=_('Language'),
                             unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Task(models.Model):
     """
     A named task from a pre-defined list or null (unspecified).
     """
-    name = models.CharField(max_length=60,
-                            verbose_name=_('Task Name'),
-                            help_text=_('The English name of the task'),
-                            unique=True)
+    name = models.CharField(
+        max_length=60,
+        verbose_name=_('Task Name'),
+        help_text=_('The English name of the task'),
+        unique=True)
 
     @staticmethod
     def tasks_for_language(language):
+        lang = Language.objects.get(name=language)
         tasks = Task.objects.prefetch_related(Prefetch(
             'translations',
-            queryset=TaskTranslation.objects.filter(language=language)))
+            queryset=TaskTranslation.objects.filter(language=lang)))
         return tasks
 
     def __str__(self):

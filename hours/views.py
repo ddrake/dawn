@@ -28,7 +28,7 @@ class HoursIndexView(LoginRequiredMixin, ListView):
             user_id=self.request.user.pk, date__year=datetime.now().year)
         for h in hours:
             h.task.name = h.task.translations.filter(
-                language=language)[0].name
+                language__name=language)[0].name
         return hours
 
 
@@ -51,10 +51,18 @@ class HoursCreateView(LoginRequiredMixin, CreateView):
         return kwargs
 
     def get_initial(self):
+        print(f"In get_initial: {self.request.session.get('last_task', '')=}")
         return {
             'user': self.request.user,
-            'hours': 1
+            'hours': 1,
+            'task': self.request.session.get('last_task', ''),
         }
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            request.session['last_task'] = form.instance.task_id
+        return super().post(request, *args, **kwargs)
 
 
 class HoursUpdateView(UserPassesTestMixin, UpdateView):

@@ -1,5 +1,7 @@
 from datetime import datetime
+import csv
 
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import View
 from django.views.generic import (ListView, CreateView, UpdateView, DeleteView)
@@ -89,3 +91,22 @@ class HoursDeleteView(UserPassesTestMixin, DeleteView):
     def test_func(self):
         obj = self.get_object()
         return self.request.user == obj.user
+
+
+class AllHoursCSVView(UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(
+            content_type='text/csv',
+            headers={'Content-Disposition':
+                     'attachment; filename="AllHours.csv"'},
+        )
+        writer = csv.writer(response)
+        writer.writerow(['Task', 'User', 'Date', 'Hours'])
+        for hrs in Hours.objects.order_by('task', 'user', 'date'):
+            writer.writerow(
+                [hrs.task, hrs.user, hrs.date, hrs.hours]
+            )
+        return response

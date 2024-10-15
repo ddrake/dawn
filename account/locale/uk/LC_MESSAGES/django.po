@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-15 00:49+0000\n"
+"POT-Creation-Date: 2024-10-15 01:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,9 +65,10 @@ msgstr "Будь ласка, активуйте свій обліковий за
 msgid ""
 "Please check your inbox (and junk email) for an email with a link to verify "
 "your email address."
-msgstr "Будь ласка, перевірте свою поштову скриньку (і небажану електронну пошту) "
-"на наявність електронного листа з посиланням для підтвердження "
-"ваша електронна адреса."
+msgstr ""
+"Будь ласка, перевірте свою поштову скриньку (і небажану електронну пошту) на "
+"наявність електронного листа з посиланням для підтвердження ваша електронна "
+"адреса."
 
 #: account/templates/account/register.html:5
 msgid "Register"
@@ -101,8 +102,8 @@ msgid "Login to Manage Hours"
 msgstr "Увійдіть, щоб керувати годинами"
 
 #: account/templates/registration/login.html:18
-msgid "Forgot username or password"
-msgstr "Забув ім'я користувача або пароль"
+msgid "Need username or password"
+msgstr "Потрібно ім'я користувача або пароль"
 
 #: account/templates/registration/password_change_done.html:4
 msgid "Password changed"

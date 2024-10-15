@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translations for dawn site.
+# Copyright (C) 2024 DAWN
+# This file is distributed under the same license as the DAWN package.
+# DOW DRAKE <dowdrake@gmail.com>, 2024.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 20:45+0000\n"
+"POT-Creation-Date: 2024-10-15 00:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,22 +33,26 @@ msgstr ""
 msgid "DAWN Apps"
 msgstr "Програми DAWN"
 
-#: dawn/templates/base.html:67
+#: dawn/templates/base.html:56
 msgid "Hours"
 msgstr "години"
 
-#: dawn/templates/base.html:73
+#: dawn/templates/base.html:70
 msgid "User"
 msgstr "Користувач"
 
-#: dawn/templates/base.html:79
+#: dawn/templates/base.html:76
 msgid "Log out"
 msgstr "Вийти"
 
-#: dawn/templates/base.html:87
+#: dawn/templates/base.html:84
 msgid "Log in"
 msgstr "авторизуватися"
 
-#: dawn/templates/base.html:106
+#: dawn/templates/base.html:89
+msgid "Register"
+msgstr ""
+
+#: dawn/templates/base.html:104
 msgid "Copyright"
 msgstr "Авторське право"

@@ -1,16 +1,17 @@
-{% extends 'main/base.html' %}
+{% extends 'base.html' %}
 {% load tailwind_filters %}
+{% load i18n %}
 {% block title %}
-<title>Register</title>
+<title>{% translate "Register" %}</title>
 {% endblock title %}
 {% block content %}
 <div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
     <div>
-        <h1 class="block text-xl mb-2">Register to use the Integrated Farm Budget Tool</h1>
+        <h1 class="block text-xl mb-2">{% translate "Register to use DAWN apps" %}</h1>
         <form action="" method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn-primary">Create account</button>
+            <button type="submit" class="btn-primary">{% translate "Create account" %}</button>
         </form>
     </div>
 </div>

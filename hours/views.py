@@ -8,7 +8,7 @@ from django.views.generic import (ListView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 
-from .models import Hours
+from .models import Hours, Language
 from .forms import HoursCreateForm, HoursUpdateForm
 
 
@@ -24,18 +24,12 @@ class HoursIndexView(LoginRequiredMixin, ListView):
     template_name = 'hours/list.html'
 
     def get_queryset(self):
-        # TODO: try to handle this in a cleaner way using nested Prefetch
-        language = self.request.COOKIES.get('django_language', 'en-us')
-        hours = Hours.objects.filter(
-            user_id=self.request.user.pk, date__year=datetime.now().year)
-        for h in hours:
-            h.task.name = h.task.translations.filter(
-                language__name=language)[0].name
-        return hours
+        language_id = Language.objects.get(
+            name=self.request.COOKIES.get('django_language', 'en-us')).pk
+        return Hours.hours_with_translated_task_name(
+            self.request.user.pk, language_id, datetime.now().year)
 
 
-# Note: I don't think we need a detail view in this case.  Just link from the listview.
-# Note: we can use extracontext to get args into the form
 class HoursCreateView(LoginRequiredMixin, CreateView):
     model = Hours
     form_class = HoursCreateForm

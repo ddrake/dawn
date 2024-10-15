@@ -121,6 +121,18 @@ class Hours(models.Model):
     def get_current_year():
         return datetime.now().year
 
+    @staticmethod
+    def hours_with_translated_task_name(user_id, language_id, year):
+        return Hours.objects.raw(
+            """select h.id, h.user_id, h.date,
+            h.hours, tr.language_id, tr.name task_name
+            from hours_hours h join hours_task t
+            on h.task_id = t.id join hours_tasktranslation tr
+            on t.id = tr.task_id
+            where h.user_id = %s and tr.language_id = %s
+            and Extract(YEAR FROM date)=%s;
+            """, [user_id, language_id, year])
+
     def clean(self):
         if (Hours.user_hours_for_date(self.user, self.date) + self.hours) > 24:
             raise ValidationError({'hours': _(

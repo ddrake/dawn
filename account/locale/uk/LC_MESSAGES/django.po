@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translations for authorization pages.
+# Copyright (C) 2024 DAWN
+# This file is distributed under the same license as the DAWN package.
+# DOW DRAKE <dowdrake@gmail.com>, 2024.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 03:42+0000\n"
+"POT-Creation-Date: 2024-10-15 00:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,76 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: account/templates/account/activate_account.html:3
+msgid "Hello"
+msgstr "Привіт"
+
+#: account/templates/account/activate_account.html:5
+msgid "We noticed you just signed up at our website"
+msgstr "Ми помітили, що ви щойно зареєструвалися на нашому сайті"
+
+#: account/templates/account/activate_account.html:7
+msgid "Please click to confirm your email address and activate your account"
+msgstr ""
+"Натисніть, щоб підтвердити адресу електронної пошти та активувати обліковий "
+"запис"
+
+#: account/templates/account/activate_account_invalid.html:9
+msgid "Sorry, but we weren't able to (re)activate your account."
+msgstr "Вибачте, але ми не змогли (повторно) активувати ваш обліковий запис."
+
+#: account/templates/account/activate_account_invalid.html:12
+msgid ""
+"It's most likely that you have already activated your account, and that you "
+"are seeing this message because you have clicked the link in the "
+"confirmation email multiple times.  Please return to the home page.  If "
+"you're not already logged in, try to log in using the username and password "
+"you specified when you registered."
+msgstr ""
+"Швидше за все, ви вже активували свій обліковий запис і ви бачите це "
+"повідомлення, тому що ви клацнули посилання в підтвердження електронною "
+"поштою кілька разів. Поверніться на домашню сторінку. Якщо ви ще не ввійшли, "
+"спробуйте увійти, використовуючи ім'я користувача та пароль, який ви вказали "
+"при реєстрації."
+
+#: account/templates/account/check_email.html:4
+msgid "Activate"
+msgstr "активувати"
+
+#: account/templates/account/check_email.html:9
+msgid "Please activate your account"
+msgstr "Будь ласка, активуйте свій обліковий запис"
+
+#: account/templates/account/check_email.html:10
+msgid ""
+"Please check your inbox (and junk email) for an email with a link to verify "
+"your email address."
+msgstr "Будь ласка, перевірте свою поштову скриньку (і небажану електронну пошту) "
+"на наявність електронного листа з посиланням для підтвердження "
+"ваша електронна адреса."
+
+#: account/templates/account/register.html:5
+msgid "Register"
+msgstr "зареєструватися"
+
+#: account/templates/account/register.html:10
+msgid "Register to use DAWN apps"
+msgstr "Зареєструйтеся, щоб використовувати програми DAWN"
+
+#: account/templates/account/register.html:14
+msgid "Create account"
+msgstr "Створити акаунт"
+
+#: account/templates/account/success.html:4
+msgid "Verified!"
+msgstr "Перевірено!"
+
+#: account/templates/account/success.html:9
+msgid "Congratulations! you verified your email, and your account is active"
+msgstr ""
+"Щиро вітаю! ви підтвердили свою електронну адресу, і ваш обліковий запис "
+"активний"
 
 #: account/templates/registration/login.html:5
 #: account/templates/registration/login.html:14

@@ -80,6 +80,11 @@ class TaskTranslation(models.Model):
         ordering = ['name']
 
 
+# helper for validation
+def first_of_year():
+    return date(datetime.now().year, 1, 1)
+
+
 class Hours(models.Model):
     """
     Hours worked, typically by a volunteer.
@@ -102,8 +107,8 @@ class Hours(models.Model):
                              help_text=_('The task performed'))
 
     date = models.DateField(default=datetime.today,
-                            validators=[MinVal(date(date.today().year, 1, 1)),
-                                        MaxVal(date.today())],
+                            validators=[MinVal(first_of_year),
+                                        MaxVal(date.today)],
                             verbose_name=_('Date'),
                             help_text=_('The date the task was performed.'))
 

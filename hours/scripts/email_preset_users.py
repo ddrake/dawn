@@ -26,9 +26,11 @@ To make this as simple as possible, we have pre-registered you by creating a pro
 
 4. Log in to the Hours app with your username: {user.username} and the password you just created.
 
-5. Start to input your best estimates for the hours you worked in 2024.  Once we reach the new year, it will no longer be possible to add hours for 2024.
+5. At the top right, you should see "User: <your username>".  If you are a U.S. Citizen, please click that link to see your user profile, check the box for U.S. Citizen, and click "Update" to save.
 
-6. If you have any trouble using this app, please check for open issues at github.com/ddrake/dawn/issues and click "New Issue" if your issue hasn't been reported yet.
+6. Start to input your best estimates for the hours you worked in 2024.  Once we reach the new year, it will no longer be possible to add hours for 2024.
+
+If you have any trouble using this app, please check for open issues at github.com/ddrake/dawn/issues and, if your issue hasn't been reported yet, click "New Issue" and let us know the details.
 
 Thank you for your continued support!"""
 

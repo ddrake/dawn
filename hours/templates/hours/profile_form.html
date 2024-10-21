@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_filters crispy_forms_tags %}
+{% load i18n %}
+{% block title %}
+<title>{% translate "Edit Profile" %}</title>
+{% endblock title %}
+{% block content %}
+<div class="flex flex-col gap-y-4">
+  <div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+    <div>
+        {% crispy form %}
+    </div>
+  </div>
+  <div>
+     <a class="text-lg text-indigo-800 hover:text-indigo-600"
+        href="{% url 'hours_list' %}">
+       {% translate "Back to list" %}</a>
+  </div>
+</div>
+{% endblock content %}
+

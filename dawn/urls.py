@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from hours.views import HoursIndexView
+from hours.views import HoursIndexView, ProfileUpdateView
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
@@ -27,6 +27,7 @@ urlpatterns = [
     path('hours/', include('hours.urls')),
     path('admin/', admin.site.urls),
     path('', HoursIndexView.as_view(), name="hours_list"),
+    path('profile/<int:pk>', ProfileUpdateView.as_view(), name="profile"),
     path('__reload__/', include('django_browser_reload.urls')),
 ]
 

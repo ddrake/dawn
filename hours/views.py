@@ -8,8 +8,9 @@ from django.views.generic import (ListView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 
+from django.contrib.auth.models import User
 from .models import Hours, Language
-from .forms import HoursCreateForm, HoursUpdateForm
+from .forms import HoursCreateForm, HoursUpdateForm, ProfileUpdateForm
 
 
 class SetLangView(View):
@@ -80,6 +81,17 @@ class HoursUpdateView(UserPassesTestMixin, UpdateView):
 
 class HoursDeleteView(UserPassesTestMixin, DeleteView):
     model = Hours
+    success_url = reverse_lazy('hours_list')
+
+    def test_func(self):
+        obj = self.get_object()
+        return self.request.user == obj.user
+
+
+class ProfileUpdateView(UpdateView):
+    model = User
+    form_class = ProfileUpdateForm
+    template_name = 'hours/profile_form.html'
     success_url = reverse_lazy('hours_list')
 
     def test_func(self):

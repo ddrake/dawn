@@ -67,7 +67,11 @@
         </div>
         <div>
           {% if user.is_authenticated %}
-            <span class="mt-4 text-white">{% translate "User" %}: {{user}}</span>
+            <span class="mt-4 text-white">{% translate "User" %}: </span>
+            <a
+              href="{% url 'profile' user.pk %}"
+              class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white ml-1"
+              >{{user}}</a>
             <form action="{% url 'logout' %}" method="POST" name="logout" value="logout"
               class="inline-block">
               {% csrf_token %}

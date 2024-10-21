@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-15 14:18+0000\n"
+"POT-Creation-Date: 2024-10-21 17:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,18 +45,18 @@ msgstr "адмін"
 msgid "User"
 msgstr "Користувач"
 
-#: dawn/templates/base.html:76
+#: dawn/templates/base.html:80
 msgid "Log out"
 msgstr "Вийти"
 
-#: dawn/templates/base.html:84
+#: dawn/templates/base.html:88
 msgid "Log in"
 msgstr "авторизуватися"
 
-#: dawn/templates/base.html:89
+#: dawn/templates/base.html:93
 msgid "Register"
 msgstr "зареєструватися"
 
-#: dawn/templates/base.html:104
+#: dawn/templates/base.html:108
 msgid "Copyright"
 msgstr "Авторське право"

@@ -110,9 +110,10 @@ class AllHoursCSVView(UserPassesTestMixin, View):
                      'attachment; filename="AllHours.csv"'},
         )
         writer = csv.writer(response)
-        writer.writerow(['Task', 'User', 'Date', 'Hours'])
+        writer.writerow(['Task', 'User', 'U.S. Citizen?', 'Date', 'Hours'])
         for hrs in Hours.objects.order_by('task', 'user', 'date'):
             writer.writerow(
-                [hrs.task, hrs.user, hrs.date, hrs.hours]
+                [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
+                 hrs.user.profile.us_citizen, hrs.date, hrs.hours]
             )
         return response

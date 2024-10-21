@@ -112,8 +112,9 @@ class AllHoursCSVView(UserPassesTestMixin, View):
         writer = csv.writer(response)
         writer.writerow(['Task', 'User', 'U.S. Citizen?', 'Date', 'Hours'])
         for hrs in Hours.objects.order_by('task', 'user', 'date'):
-            writer.writerow(
-                [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
-                 hrs.user.profile.us_citizen, hrs.date, hrs.hours]
-            )
+            if not hrs.user.is_superuser:
+                writer.writerow(
+                    [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
+                     hrs.user.profile.us_citizen, hrs.date, hrs.hours]
+                )
         return response

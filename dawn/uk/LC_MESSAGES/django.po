@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 20:45+0000\n"
+"POT-Creation-Date: 2024-12-09 02:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,84 +63,84 @@ msgstr ""
 msgid "Enter a valid domain name."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:152
+#: env/lib/python3.10/site-packages/django/core/validators.py:155
 #: env/lib/python3.10/site-packages/django/forms/fields.py:768
 msgid "Enter a valid URL."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:213
+#: env/lib/python3.10/site-packages/django/core/validators.py:216
 msgid "Enter a valid integer."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:224
+#: env/lib/python3.10/site-packages/django/core/validators.py:227
 msgid "Enter a valid email address."
 msgstr ""
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
-#: env/lib/python3.10/site-packages/django/core/validators.py:307
+#: env/lib/python3.10/site-packages/django/core/validators.py:310
 msgid ""
 "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:315
+#: env/lib/python3.10/site-packages/django/core/validators.py:318
 msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:327
-#: env/lib/python3.10/site-packages/django/core/validators.py:336
-#: env/lib/python3.10/site-packages/django/core/validators.py:350
+#: env/lib/python3.10/site-packages/django/core/validators.py:330
+#: env/lib/python3.10/site-packages/django/core/validators.py:339
+#: env/lib/python3.10/site-packages/django/core/validators.py:353
 #: env/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2215
 #, python-format
 msgid "Enter a valid %(protocol)s address."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:329
+#: env/lib/python3.10/site-packages/django/core/validators.py:332
 msgid "IPv4"
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:338
+#: env/lib/python3.10/site-packages/django/core/validators.py:341
 #: env/lib/python3.10/site-packages/django/utils/ipv6.py:30
 msgid "IPv6"
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:352
+#: env/lib/python3.10/site-packages/django/core/validators.py:355
 msgid "IPv4 or IPv6"
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:393
+#: env/lib/python3.10/site-packages/django/core/validators.py:396
 msgid "Enter only digits separated by commas."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:399
+#: env/lib/python3.10/site-packages/django/core/validators.py:402
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:434
+#: env/lib/python3.10/site-packages/django/core/validators.py:437
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
 msgstr "Переконайтеся, що це значення менше або дорівнює %(limit_value)s."
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:443
+#: env/lib/python3.10/site-packages/django/core/validators.py:446
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
 msgstr "Переконайтеся, що це значення більше або дорівнює %(limit_value)s."
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:452
+#: env/lib/python3.10/site-packages/django/core/validators.py:455
 #, python-format
 msgid "Ensure this value is a multiple of step size %(limit_value)s."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:459
+#: env/lib/python3.10/site-packages/django/core/validators.py:462
 #, python-format
 msgid ""
 "Ensure this value is a multiple of step size %(limit_value)s, starting from "
 "%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:491
+#: env/lib/python3.10/site-packages/django/core/validators.py:494
 #, python-format
 msgid ""
 "Ensure this value has at least %(limit_value)d character (it has "
@@ -151,7 +151,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:509
+#: env/lib/python3.10/site-packages/django/core/validators.py:512
 #, python-format
 msgid ""
 "Ensure this value has at most %(limit_value)d character (it has "
@@ -162,27 +162,27 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:532
+#: env/lib/python3.10/site-packages/django/core/validators.py:535
 #: env/lib/python3.10/site-packages/django/forms/fields.py:359
 #: env/lib/python3.10/site-packages/django/forms/fields.py:398
 msgid "Enter a number."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:534
+#: env/lib/python3.10/site-packages/django/core/validators.py:537
 #, python-format
 msgid "Ensure that there are no more than %(max)s digit in total."
 msgid_plural "Ensure that there are no more than %(max)s digits in total."
 msgstr[0] ""
 msgstr[1] ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:539
+#: env/lib/python3.10/site-packages/django/core/validators.py:542
 #, python-format
 msgid "Ensure that there are no more than %(max)s decimal place."
 msgid_plural "Ensure that there are no more than %(max)s decimal places."
 msgstr[0] ""
 msgstr[1] ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:544
+#: env/lib/python3.10/site-packages/django/core/validators.py:547
 #, python-format
 msgid ""
 "Ensure that there are no more than %(max)s digit before the decimal point."
@@ -191,23 +191,23 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:615
+#: env/lib/python3.10/site-packages/django/core/validators.py:618
 #, python-format
 msgid ""
 "File extension “%(extension)s” is not allowed. Allowed extensions are: "
 "%(allowed_extensions)s."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/core/validators.py:677
+#: env/lib/python3.10/site-packages/django/core/validators.py:680
 msgid "Null characters are not allowed."
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/db/models/base.py:1571
+#: env/lib/python3.10/site-packages/django/db/models/base.py:1572
 #: env/lib/python3.10/site-packages/django/forms/models.py:908
 msgid "and"
 msgstr ""
 
-#: env/lib/python3.10/site-packages/django/db/models/base.py:1573
+#: env/lib/python3.10/site-packages/django/db/models/base.py:1574
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
 msgstr ""

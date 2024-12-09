@@ -110,11 +110,11 @@ class AllHoursCSVView(UserPassesTestMixin, View):
                      'attachment; filename="AllHours.csv"'},
         )
         writer = csv.writer(response)
-        writer.writerow(['Task', 'User', 'U.S. Citizen?', 'Date', 'Hours'])
+        writer.writerow(['Task', 'User', 'U.S. Citizen/Green Card?', 'Date', 'Hours',
+                         'Comment'])
         for hrs in Hours.objects.order_by('task', 'user', 'date'):
-            if not hrs.user.is_superuser:
-                writer.writerow(
-                    [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
-                     hrs.user.profile.us_citizen, hrs.date, hrs.hours]
-                )
+            writer.writerow(
+                [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
+                 hrs.user.profile.us_citizen, hrs.date, hrs.hours, hrs.comment]
+            )
         return response

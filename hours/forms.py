@@ -23,7 +23,7 @@ class HoursForm(ModelForm):
         self.helper.form_id = 'hoursform'
         self.helper.layout = Layout(
             Fieldset(_('Volunteer Hours'),
-                     'date', 'task', 'hours',
+                     'date', 'task', 'hours', 'comment',
                      Field('user', type='hidden'),
                      )
         )
@@ -33,7 +33,7 @@ class HoursForm(ModelForm):
 
     class Meta:
         model = Hours
-        fields = '''date task hours user'''.split()
+        fields = '''date task hours comment user'''.split()
         widgets = {
             'hours': forms.NumberInput(
                 attrs={'step': 0.25, 'min': 0.25, 'max': 24}),
@@ -63,7 +63,7 @@ class ProfileUpdateForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        field = forms.BooleanField(label=_('U.S. Citizen?'),
+        field = forms.BooleanField(label=_('U.S. Citizen or have Green Card?'),
                                    initial=self.instance.profile.us_citizen,
                                    required=False)
         self.fields['us_citizen'] = field

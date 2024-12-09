@@ -30,7 +30,9 @@ class Profile(models.Model):
         verbose_name=_('User'),
         related_name='profile')
 
-    us_citizen = models.BooleanField(default=False)
+    us_citizen = models.BooleanField(
+        default=False,
+        help_text=_('Check this box if you are a U.S Citizen or have a Green Card'))
 
 
 @receiver(post_save, sender=User)
@@ -134,6 +136,8 @@ class Hours(models.Model):
     hours = models.FloatField(default=0, validators=[MinVal(0.25), MaxVal(24)],
                               verbose_name=_('Hours'),
                               help_text=_('The hours worked on this task/day'))
+
+    comment = models.TextField(verbose_name=_('Comment'), null=True)
 
     @classmethod
     def user_hours_for_date(cls, user, date):

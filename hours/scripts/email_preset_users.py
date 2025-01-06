@@ -9,7 +9,7 @@ email_preset_users.send_emails(is_test=True)
 from django.contrib.auth.models import User
 
 
-def send_email(user):
+def send_single_email(user):
     subject = "Instructions for logging in to DAWN volunteer hours app"
 
     body = f"""Hi {user.first_name},
@@ -46,7 +46,7 @@ def send_email(username=None):
     '''
     if username is not None:
         user = User.objects.get(username=username)
-        send_email(user)
+        send_single_email(user)
     else:
         for user in User.objects.filter(is_active=True):
-            send_email(user)
+            send_single_email(user)

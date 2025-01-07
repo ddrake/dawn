@@ -137,7 +137,7 @@ class Hours(models.Model):
                               verbose_name=_('Hours'),
                               help_text=_('The hours worked on this task/day'))
 
-    comment = models.TextField(verbose_name=_('Comment'), null=True)
+    comment = models.TextField(verbose_name=_('Comment'), null=True, blank=True)
 
     @classmethod
     def user_hours_for_date(cls, user, date):

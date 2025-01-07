@@ -48,7 +48,6 @@ class HoursCreateView(LoginRequiredMixin, CreateView):
         return kwargs
 
     def get_initial(self):
-        print(f"In get_initial: {self.request.session.get('last_task', '')=}")
         return {
             'user': self.request.user,
             'hours': 1,

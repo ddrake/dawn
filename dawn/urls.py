@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('account.urls')),
     path('hours/', include('hours.urls')),
     path('admin/', admin.site.urls),
+    path('impersonate/', include('impersonate.urls')),
     path('', HoursIndexView.as_view(), name="hours_list"),
     path('profile/<int:pk>', ProfileUpdateView.as_view(), name="profile"),
     path('__reload__/', include('django_browser_reload.urls')),

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'crispy_forms',
     'crispy_tailwind',
+    'impersonate',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'impersonate.middleware.ImpersonateMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -139,6 +141,12 @@ USE_TZ = True
 
 STATICFILES_DIRS = [BASE_DIR / 'dawn/static']
 STATIC_URL = 'static/'
+
+IMPERSONATE = {
+    'REDIRECT_URL': '/hours/',
+    'PAGINATE_COUNT': 10,
+    'REQUIRE_SUPERUSER': True,
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

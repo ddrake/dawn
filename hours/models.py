@@ -158,7 +158,8 @@ class Hours(models.Model):
             on h.task_id = t.id join hours_tasktranslation tr
             on t.id = tr.task_id
             where h.user_id = %s and tr.language_id = %s
-            and Extract(YEAR FROM date)=%s;
+            and Extract(YEAR FROM date)=%s
+            order by h.date desc;
             """, [user_id, language_id, year])
 
     def clean(self):

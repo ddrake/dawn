@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}
-<title>{% translate "Hours" %}</title>
+  <title>{% translate "Hours" %}</title>
 {% endblock title %}
 {% block content %}
 <div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
   <div>
     <h1 class="mb-1 text-2xl font-medium text-black">{% translate "Hours" %}</h1>
+    <div class="mt-2">
+    {% if user.is_staff %}
+    <div class="mt-2">
+      <a class="text-xl text-indigo-800 hover:text-indigo-600"
+         href="{% url 'download' %}">{% translate "Download all hours" %}
+      </a> 
+    </div>
+    {% endif %}
+    <a class="text-xl text-indigo-800 hover:text-indigo-600"
+       href="{% url 'hours_create' %}">{% translate "Add hours" %}</a> 
+    </div>
     {% if hours_list %}
       <table>
       <thead>
@@ -35,19 +46,9 @@
       </table>
     {% else %}
     <p class="mb-1 text-base font-medium text-black">
-      {% translate "You don't have any hours entered for this year yet.  Please add some!" %}</p>
+      {% translate "You don't have any hours entered for this year yet.  Please add some!" %}
+    </p>
     {% endif %}
-    <div class="mt-2">
-    <a class="text-xl text-indigo-800 hover:text-indigo-600"
-       href="{% url 'hours_create' %}">{% translate "Add hours" %}</a> 
-    </div>
-    {% if user.is_staff %}
-    <div class="mt-2">
-    <a class="text-xl text-indigo-800 hover:text-indigo-600"
-       href="{% url 'download' %}">{% translate "Download all hours" %}</a> 
-    </div>
-    {% endif %}
-
   </div>
 </div>
 {% endblock %}

@@ -71,7 +71,12 @@
             <a
               href="{% url 'profile' user.pk %}"
               class="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white ml-1"
-              >{{user.first_name}}</a>
+	      >{% if user.first_name %}
+	         {{user.first_name}}
+	       {% else %}
+	         {{user}}
+	       {% endif %}
+	    </a>
             <form action="{% url 'logout' %}" method="POST" name="logout" value="logout"
               class="inline-block">
               {% csrf_token %}

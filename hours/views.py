@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 
 from django.contrib.auth.models import User
+from django.conf import settings
 from .models import Hours, Language
 from .forms import HoursCreateForm, HoursUpdateForm, ProfileUpdateForm
 
@@ -98,7 +99,7 @@ class ProfileUpdateView(UpdateView):
         return self.request.user == obj.user
 
 
-class AllHoursCSVView(UserPassesTestMixin, View):
+class AllHoursCSVDownloadView(UserPassesTestMixin, View):
     def test_func(self):
         return self.request.user.is_staff
 
@@ -116,4 +117,24 @@ class AllHoursCSVView(UserPassesTestMixin, View):
                 [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
                  hrs.user.profile.us_citizen, hrs.date, hrs.hours, hrs.comment]
             )
+        return response
+
+class AllHoursCSVView(View):
+    def get(self, request, *args, **kwargs):
+        key = getattr(settings, 'HOURS_TABLE_KEY')
+        if 'k' in request.GET and request.GET.get('k') == key:
+            response = HttpResponse(
+                content_type='text/csv',
+                headers={'Content-Disposition': 'inline'},
+            )
+            writer = csv.writer(response)
+            writer.writerow(['Task', 'User', 'U.S. Citizen/Green Card?', 'Date', 'Hours',
+                             'Comment'])
+            for hrs in Hours.objects.order_by('task', 'user', 'date'):
+                writer.writerow(
+                    [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
+                     hrs.user.profile.us_citizen, hrs.date, hrs.hours, hrs.comment]
+                )
+        else:
+            response = redirect(reverse('login'))
         return response

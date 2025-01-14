@@ -8,5 +8,6 @@ urlpatterns = [
     path("edit/<int:pk>/", views.HoursUpdateView.as_view(), name="hours_update"),
     path("delete/<int:pk>/", views.HoursDeleteView.as_view(), name="hours_delete"),
     path("set_lang/", views.SetLangView.as_view(), name="set_lang"),
-    path("download/", views.AllHoursCSVView.as_view(), name="download"),
+    path("download/", views.AllHoursCSVDownloadView.as_view(), name="download"),
+    path("getcsv/", views.AllHoursCSVView.as_view(), name="getcsv"),
 ]

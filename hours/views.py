@@ -128,12 +128,10 @@ class AllHoursCSVView(View):
                 headers={'Content-Disposition': 'inline'},
             )
             writer = csv.writer(response)
-            writer.writerow(['Task', 'User', 'U.S. Citizen/Green Card?', 'Date', 'Hours',
-                             'Comment'])
+            writer.writerow(['Task', 'UserID', 'Date', 'Hours')
             for hrs in Hours.objects.order_by('task', 'user', 'date'):
                 writer.writerow(
-                    [hrs.task, f"{hrs.user.first_name} {hrs.user.last_name}",
-                     hrs.user.profile.us_citizen, hrs.date, hrs.hours, hrs.comment]
+                    [hrs.task, hrs.user.id, hrs.date, hrs.hours]
                 )
         else:
             response = redirect(reverse('login'))

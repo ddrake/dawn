@@ -128,7 +128,7 @@ class AllHoursCSVView(View):
                 headers={'Content-Disposition': 'inline'},
             )
             writer = csv.writer(response)
-            writer.writerow(['Task', 'UserID', 'Date', 'Hours')
+            writer.writerow(['Task', 'UserID', 'Date', 'Hours'])
             for hrs in Hours.objects.order_by('task', 'user', 'date'):
                 writer.writerow(
                     [hrs.task, hrs.user.id, hrs.date, hrs.hours]

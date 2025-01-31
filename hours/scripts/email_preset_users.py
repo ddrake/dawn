@@ -14,9 +14,9 @@ def send_single_email(user):
 
     body = f"""Hi {user.first_name},
 
-For grant applications, it will be extremely helpful if you could begin to use the new DAWN Volunteer Hours application to fill in the hours you worked in 2024 (we hope you will continue to use it to fill in hours for future years).
+For grant applications, it will be extremely helpful if you could begin to use the new DAWN Volunteer Hours application to fill in the hours you work.
 
-To make this as simple as possible, we have pre-registered you by creating a profile with the username: {user.username} and the email address we have on file for you: {user.email}.  Here are the steps to get started:
+To make this as simple as possible, we have pre-registered you by creating a profile with the username: '{user.username}' and the email address we have on file for you: {user.email}.  Here are the steps to get started:
 
 1. Browse to the web location: dawnus.app, and choose your desired language (English or Ukrainian).  You should be on the login page.  Under the login form there is a link: "Need username or password".
 
@@ -24,13 +24,9 @@ To make this as simple as possible, we have pre-registered you by creating a pro
 
 3. Check your inbox (and junk email if needed) for an email from webmaster@dawnus.app and click the link in that email.  This should open a browser tab where you can set and confirm your password.  Once you have done so, you should be taken back to the login page.
 
-4. Log in to the Hours app with your username: {user.username} and the password you just created.
+4. Log in to the Hours app with the username we've assigned you, namely '{user.username}' and the password you just created.
 
-5. At the top right, you should see "User: <your username>".  If you are a U.S. Citizen, please click that link to see your user profile, check the box for U.S. Citizen, and click "Update" to save.
-
-6. Start to input your best estimates for the hours you worked in 2024.  Once we reach the new year, it will no longer be possible to add hours for 2024.
-
-If you have any trouble using this app, please check for open issues at github.com/ddrake/dawn/issues and, if your issue hasn't been reported yet, click "New Issue" and let us know the details.
+5. At the top right, you should see "User: <your first name>".  If you are a U.S. Citizen or have a Green Card, please click that link to see your user profile, check the box near the bottom of the form and click "Update" to save.
 
 Thank you for your continued support!"""
 

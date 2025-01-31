@@ -1,7 +1,7 @@
 from datetime import datetime
 import csv
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.views import View
 from django.views.generic import (ListView, CreateView, UpdateView, DeleteView)
@@ -136,3 +136,25 @@ class AllHoursCSVView(View):
         else:
             response = redirect(reverse('login'))
         return response
+
+def send_user_instructions(request, user_id):
+    success = False
+    try:
+        user = User.objects.get(pk=user_id)
+        from hours.scripts.email_preset_users import send_single_email
+        send_single_email(user) 
+        success = True
+    except Exception:
+        pass
+
+    is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+    if is_ajax:
+        if request.method == 'GET':
+            return JsonResponse({'result': success})
+        else:
+            return JsonResponse({'status': 'Invalid request'}, status=400)
+    else:
+        response_text = (f"{user.first_name} was sent the instructions!" if success
+                     else "Something went wrong.  The user was not notified!")
+        return HttpResponse(response_text)
+

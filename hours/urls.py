@@ -10,4 +10,5 @@ urlpatterns = [
     path("set_lang/", views.SetLangView.as_view(), name="set_lang"),
     path("download/", views.AllHoursCSVDownloadView.as_view(), name="download"),
     path("getcsv/", views.AllHoursCSVView.as_view(), name="getcsv"),
+    path("send_user_instructions/<int:user_id>/", views.send_user_instructions, name="send_user_instructions"),
 ]

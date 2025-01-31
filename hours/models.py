@@ -9,6 +9,8 @@ from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import (
     MinValueValidator as MinVal, MaxValueValidator as MaxVal)
+from django.urls import reverse
+from django.utils.html import format_html
 
 
 class Language(models.Model):
@@ -34,6 +36,24 @@ class Profile(models.Model):
         default=False,
         help_text=_('Check this box if you are a U.S Citizen or have a Green Card'))
 
+    def username(self):
+        return self.user.username
+
+    def first_name(self):
+        return self.user.first_name
+
+    def last_name(self):
+        return self.user.last_name
+
+    def email(self):
+        return self.user.email
+
+    def is_staff(self):
+        return self.user.is_staff
+
+    def user_instructions_email(self):
+        url = reverse('send_user_instructions', args=[self.user.pk])
+        return format_html('<a href="{}">Send Email</a>', url)
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

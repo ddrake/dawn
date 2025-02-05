@@ -144,7 +144,7 @@ def send_user_instructions(request, user_id):
         from hours.scripts.email_preset_users import send_single_email
         send_single_email(user) 
         profile = user.profile
-        profile.help_emailed = True
+        profile.help_emailed = 'Y'
         profile.save()
         success = True
     except Exception:

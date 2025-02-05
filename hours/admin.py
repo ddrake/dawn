@@ -23,7 +23,7 @@ class LanguageAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
     actions = None
     list_display = ['username', 'first_name', 'last_name', 'email',
-                    'is_staff', 'user_instructions_email',] 
+                    'is_staff', 'user_instructions_email', 'help_emailed'] 
 
 admin.site.register(Language, LanguageAdmin)
 admin.site.register(Task, TaskAdmin)

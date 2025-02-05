@@ -143,6 +143,9 @@ def send_user_instructions(request, user_id):
         user = User.objects.get(pk=user_id)
         from hours.scripts.email_preset_users import send_single_email
         send_single_email(user) 
+        profile = user.profile
+        profile.help_emailed = True
+        profile.save()
         success = True
     except Exception:
         pass

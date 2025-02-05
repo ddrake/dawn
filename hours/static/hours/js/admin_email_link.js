@@ -7,7 +7,7 @@ function ajax_emailer_handler() {
         if (attr.name = 'href' && attr.value.includes('send_user_instructions')) {
           link.addEventListener("click", function(e) {
 	    const root = location.protocol + '//' + location.host;
-            ajax_call(root + attr.value)
+            ajax_call(root + attr.value, e.target)
             e.preventDefault()
       	  })
         }
@@ -15,7 +15,7 @@ function ajax_emailer_handler() {
     }
 }
 
-function ajax_call(url) {
+function ajax_call(url, element) {
   fetch(url, {
     method: "GET",
     headers: {
@@ -28,6 +28,10 @@ function ajax_call(url) {
        return response.json()
   })
   .then(data => {
+    if (data) {
+      const td = element.parentElement.nextElementSibling;
+      td.innerText = 'Y';
+    }
     alert(data ? "The user was notified!" : "Notification failed!");
   });
 }

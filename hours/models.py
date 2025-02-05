@@ -36,6 +36,10 @@ class Profile(models.Model):
         default=False,
         help_text=_('Check this box if you are a U.S Citizen or have a Green Card'))
 
+    help_emailed = models.CharField(
+        max_length=1, default='N',
+        help_text=_('Was the instructional email sent to this user?'))
+
     def username(self):
         return self.user.username
 

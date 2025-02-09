@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 02:33+0000\n"
+"POT-Creation-Date: 2025-02-09 14:21-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr "Створити"
 msgid "Update"
 msgstr "оновлення"
 
-#: hours/forms.py:59 hours/templates/hours/list.html:30
+#: hours/forms.py:59 hours/templates/hours/list.html:54
 msgid "Delete"
 msgstr "Видалити"
 
@@ -45,76 +45,81 @@ msgstr "Громадянин США чи маєш зелену карту?"
 msgid "User Profile"
 msgstr "Профіль користувача"
 
-#: hours/models.py:19 hours/models.py:91
+#: hours/models.py:21 hours/models.py:115
 msgid "Language"
 msgstr "Мова"
 
-#: hours/models.py:30 hours/models.py:121
+#: hours/models.py:32 hours/models.py:145
 msgid "User"
 msgstr "Користувач"
 
-#: hours/models.py:35
+#: hours/models.py:37
 msgid "Check this box if you are a U.S Citizen or have a Green Card"
-msgstr "Поставте цей прапорець, якщо ви є громадянином США або маєте зелену картку"
+msgstr ""
+"Поставте цей прапорець, якщо ви є громадянином США або маєте зелену картку"
 
-#: hours/models.py:51 hours/models.py:87
+#: hours/models.py:41
+msgid "Was the instructional email sent to this user?"
+msgstr ""
+
+#: hours/models.py:75 hours/models.py:111
 msgid "Task Name"
 msgstr "Назва завдання"
 
-#: hours/models.py:52
+#: hours/models.py:76
 msgid "The English name of the task"
 msgstr "Англійська назва завдання"
 
-#: hours/models.py:82 hours/models.py:126 hours/templates/hours/list.html:14
+#: hours/models.py:106 hours/models.py:150 hours/templates/hours/list.html:35
 msgid "Task"
 msgstr "Назва"
 
-#: hours/models.py:84
+#: hours/models.py:108
 msgid "The task for translation"
 msgstr "Завдання на переклад"
 
-#: hours/models.py:88
+#: hours/models.py:112
 msgid "The name of the task"
 msgstr "Назва завдання"
 
-#: hours/models.py:92
+#: hours/models.py:116
 msgid "Task name language"
 msgstr "Мова назви завдання"
 
-#: hours/models.py:123
+#: hours/models.py:147
 msgid "The user who performed the task"
 msgstr "Користувач, який виконав завдання"
 
-#: hours/models.py:128
+#: hours/models.py:152
 msgid "The task performed"
 msgstr "Завдання виконано"
 
-#: hours/models.py:133 hours/templates/hours/list.html:13
+#: hours/models.py:157 hours/templates/hours/list.html:34
 msgid "Date"
 msgstr "Дата"
 
-#: hours/models.py:134
+#: hours/models.py:158
 msgid "The date the task was performed."
 msgstr "Дата виконання завдання"
 
-#: hours/models.py:137 hours/templates/hours/list.html:4
-#: hours/templates/hours/list.html:9 hours/templates/hours/list.html:15
+#: hours/models.py:161 hours/templates/hours/list.html:4
+#: hours/templates/hours/list.html:11 hours/templates/hours/list.html:36
 msgid "Hours"
 msgstr "години"
 
-#: hours/models.py:138
+#: hours/models.py:162
 msgid "The hours worked on this task/day"
 msgstr "Кількість годин, відпрацьованих над цим завданням/день"
 
-#: hours/models.py:140
+#: hours/models.py:164
 msgid "Comment"
 msgstr "коментар"
 
-#: hours/models.py:167
+#: hours/models.py:245
 msgid "A maximum of 24 hours can be logged for a given date"
 msgstr "Для певної дати можна зареєструвати максимум 24 години"
 
-#: hours/models.py:173
+#: hours/models.py:251
 msgid "Only hours in the current year can be deleted"
 msgstr "Можна видалити лише години поточного року"
 
@@ -124,7 +129,7 @@ msgstr "години"
 
 #: hours/templates/hours/form.html:18
 #: hours/templates/hours/hours_confirm_delete.html:22
-#: hours/templates/hours/profile_form.html:18
+#: hours/templates/hours/profile_form.html:17
 msgid "Back to list"
 msgstr "Назад до списку"
 
@@ -140,28 +145,36 @@ msgstr "Видалити години для"
 msgid "Confirm"
 msgstr "Підтвердити видалення"
 
-#: hours/templates/hours/list.html:16
+#: hours/templates/hours/list.html:17
+msgid "Download all hours"
+msgstr "Завантажити всі години"
+
+#: hours/templates/hours/list.html:22
+msgid "Add hours"
+msgstr "Додайте години"
+
+#: hours/templates/hours/list.html:37
 msgid "Action"
 msgstr "Дія"
 
-#: hours/templates/hours/list.html:26
+#: hours/templates/hours/list.html:48
 msgid "Edit"
 msgstr "Редагувати"
 
-#: hours/templates/hours/list.html:38
+#: hours/templates/hours/list.html:63
 msgid "You don't have any hours entered for this year yet.  Please add some!"
 msgstr ""
 "У вас ще немає введених годин для цього року.  Будь ласка, додайте трохи!"
 
-#: hours/templates/hours/list.html:42
-msgid "Add hours"
-msgstr "Додайте години"
+#: hours/templates/hours/list.html:78
+msgid "Recent Daily Hours"
+msgstr "Останні години дня"
 
-#: hours/templates/hours/list.html:47
-msgid "Download all hours"
-msgstr "Завантажити всі години"
+#: hours/templates/hours/list.html:114
+msgid "Recent Weekly Hours"
+msgstr "Останні тижневі години"
 
-#: hours/templates/hours/profile_form.html:6
+#: hours/templates/hours/profile_form.html:5
 msgid "Edit Profile"
 msgstr "Редагувати профіль"
 

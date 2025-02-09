@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 17:28+0000\n"
+"POT-Creation-Date: 2025-02-09 14:21-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,42 +21,62 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: dawn/settings.py:126
+#: dawn/settings.py:128
 msgid "Ukrainian"
 msgstr ""
 
-#: dawn/settings.py:127
+#: dawn/settings.py:129
 msgid "English"
+msgstr ""
+
+#: dawn/templates/admin/hours/profile/change_list_results.html:18
+msgid "Remove from sorting"
+msgstr ""
+
+#: dawn/templates/admin/hours/profile/change_list_results.html:19
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: dawn/templates/admin/hours/profile/change_list_results.html:20
+msgid "Toggle sorting"
 msgstr ""
 
 #: dawn/templates/base.html:7
 msgid "DAWN Apps"
 msgstr "Програми DAWN"
 
-#: dawn/templates/base.html:56
+#: dawn/templates/base.html:58
 msgid "Hours"
 msgstr "години"
 
-#: dawn/templates/base.html:64
+#: dawn/templates/base.html:66
 msgid "Admin"
 msgstr "адмін"
 
-#: dawn/templates/base.html:70
+#: dawn/templates/base.html:72
 msgid "User"
 msgstr "Користувач"
 
-#: dawn/templates/base.html:80
+#: dawn/templates/base.html:83
 msgid "Log out"
 msgstr "Вийти"
 
-#: dawn/templates/base.html:88
+#: dawn/templates/base.html:91
 msgid "Log in"
 msgstr "авторизуватися"
 
-#: dawn/templates/base.html:93
+#: dawn/templates/base.html:96
 msgid "Register"
 msgstr "зареєструватися"
 
-#: dawn/templates/base.html:108
-msgid "Copyright"
-msgstr "Авторське право"
+#: dawn/templates/base.html:110
+msgid "Copyright © 2024 DAWN"
+msgstr "Авторське право © 2024 DAWN"
+
+#: dawn/templates/base.html:112
+msgid "Report an Issue"
+msgstr "Повідомити про проблему"
+
+#~ msgid "Copyright"
+#~ msgstr "Авторське право"

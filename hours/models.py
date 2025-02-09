@@ -1,9 +1,9 @@
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.db import models
+from django.db import models, connection
 from django.db.models import Sum, Prefetch
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
@@ -185,6 +185,59 @@ class Hours(models.Model):
             and Extract(YEAR FROM date)=%s
             order by h.date desc;
             """, [user_id, language_id, year])
+
+    @staticmethod
+    def get_graph_data(user_id):
+        """
+        Returns two dicts, one with data for the daily graph,
+        the other for the weekly graph, keys are strings (labels)
+        values are floats (total hours)
+        """
+        npts = 8 # graph points
+        diw = 7 # days in week
+        d = timedelta(days=1)
+        td = datetime.now().date()
+        # normal calendar weeks start on sunday. map it to 0
+        tdwkday = td.weekday() + 1 if td.weekday() < 6 else 0
+        prev_sun = td - d * tdwkday
+        start_date = prev_sun - diw * d * (npts - 1)
+    
+        # first construct the unsorted dict paird
+        pairs = Hours.daily_hours_for_user_start_to_today(user_id, start_date)
+        paird = {p[0]: p[1] for p in pairs}
+        day = start_date
+        # populate the dict with all the days from start_date thru today
+        while day <= td:
+            if day not in paird:
+                paird[day] = 0
+            day += d
+
+        # now generate the graph data
+        dates = sorted(list(paird.keys()))
+        daily = {k.strftime('%-m/%-d'): paird[k]
+                 for k in dates[-npts:]}
+        weekly = {}
+        for i in range(npts):
+            subdates = dates[diw*i:diw*(i+1)]
+            key = subdates[0].strftime('%-m/%-d')
+            weekly[key] = sum([paird[d] for d in subdates])
+        return (list(daily.keys()), list(daily.values()),
+                list(weekly.keys()), list(weekly.values()))
+
+
+    @staticmethod
+    def daily_hours_for_user_start_to_today(user_id, start_date):
+        """
+        Returns a list of (date, hours) pairs, one for each day in the range
+        start_date thru today with hours recorded by the given user,
+        such that hours is the total hours worked by the user that day.
+        """
+        sql = """SELECT date, sum(hours) FROM public.hours_hours
+                 WHERE user_id = %s AND date >= %s
+                 GROUP BY date ORDER BY date;"""
+        with connection.cursor() as cursor:
+            cursor.execute(sql, [user_id, start_date])
+            return cursor.fetchall()
 
     def clean(self):
         if (Hours.user_hours_for_date(self.user, self.date) + self.hours) > 24:

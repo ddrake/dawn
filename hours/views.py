@@ -1,5 +1,6 @@
 from datetime import datetime
 import csv
+import json
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect
@@ -31,6 +32,15 @@ class HoursIndexView(LoginRequiredMixin, ListView):
         return Hours.hours_with_translated_task_name(
             self.request.user.pk, language_id, datetime.now().year)
 
+    def get_context_data(self, **kwargs):
+        user_id = self.request.user.pk
+        dl, dv, wl, wv = Hours.get_graph_data(user_id)
+        context = super().get_context_data(**kwargs)
+        context['dl'] = json.dumps(dl)
+        context['dv'] = json.dumps(dv)
+        context['wl'] = json.dumps(wl)
+        context['wv'] = json.dumps(wv)
+        return context
 
 class HoursCreateView(LoginRequiredMixin, CreateView):
     model = Hours

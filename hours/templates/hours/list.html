@@ -3,52 +3,141 @@
 {% block title %}
   <title>{% translate "Hours" %}</title>
 {% endblock title %}
+{% block script %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock script %}
 {% block content %}
-<div class="p-6 max-w-med mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
   <div>
     <h1 class="mb-1 text-2xl font-medium text-black">{% translate "Hours" %}</h1>
     <div class="mt-2">
-    {% if user.is_staff %}
-    <div class="mt-2">
+      {% if user.is_staff %}
+        <div class="mt-2">
+          <a class="text-xl text-indigo-800 hover:text-indigo-600"
+             href="{% url 'download' %}"
+          >{% translate "Download all hours" %}
+          </a> 
+        </div>
+      {% endif %}
       <a class="text-xl text-indigo-800 hover:text-indigo-600"
-         href="{% url 'download' %}">{% translate "Download all hours" %}
-      </a> 
+         href="{% url 'hours_create' %}">{% translate "Add hours" %}</a> 
     </div>
-    {% endif %}
-    <a class="text-xl text-indigo-800 hover:text-indigo-600"
-       href="{% url 'hours_create' %}">{% translate "Add hours" %}</a> 
+    <div>
+      <canvas id="daily_chart"></canvas>
     </div>
-    {% if hours_list %}
-      <table>
-      <thead>
-        <th>{% translate "Date" %}</th>
-        <th>{% translate "Task" %}</th>
-        <th>{% translate "Hours" %}</th>
-        <th colspan="2">{% translate "Action" %}</th>
-      </thead>
-      <tbody>
-      {% for h in hours_list %}
-      <tr>
-        <td>{{ h.date|date:"m-d-Y" }}</td>
-        <td class="px-2">{{ h.task_name }}</td>
-        <td class="px-2">{{ h.hours }}</td>
-        <td class="px-2">
-        <a class="px-2 text-blue-800 hover:text-blue-600"
-           href="{% url 'hours_update' pk=h.pk %}">{% translate "Edit" %}</a>
-        </td>
-        <td>
-        <a class="text-red-800 hover:text-red-600"
-           href="{% url 'hours_delete' pk=h.pk %}">{% translate "Delete" %}</a>
-        </td>
-      </tr>
-      {% endfor %}
-      </tbody>
-      </table>
-    {% else %}
-    <p class="mb-1 text-base font-medium text-black">
-      {% translate "You don't have any hours entered for this year yet.  Please add some!" %}
-    </p>
-    {% endif %}
+    <div>
+      <canvas id="weekly_chart"></canvas>
+    </div>
+    <div class="mt-2">
+      {% if hours_list %}
+        <table>
+          <thead>
+            <th>{% translate "Date" %}</th>
+            <th class="w-72">{% translate "Task" %}</th>
+            <th>{% translate "Hours" %}</th>
+            <th colspan="2">{% translate "Action" %}</th>
+          </thead>
+          <tbody>
+            {% for h in hours_list %}
+              <tr>
+                <td>{{ h.date|date:"m-d-Y" }}</td>
+                <td class="px-2">{{ h.task_name }}</td>
+                <td class="px-2">{{ h.hours }}</td>
+                <td class="px-2">
+                  <a class="px-2 text-blue-800 hover:text-blue-600"
+                     href="{% url 'hours_update' pk=h.pk %}"
+                  >{% translate "Edit" %}
+                  </a>
+                </td>
+                <td>
+                  <a class="text-red-800 hover:text-red-600"
+                     href="{% url 'hours_delete' pk=h.pk %}"
+                  >{% translate "Delete" %}
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p class="mb-1 text-base font-medium text-black">
+          {% translate "You don't have any hours entered for this year yet.  Please add some!" %}
+        </p>
+      {% endif %}
+    </div>
   </div>
-</div>
+{% endblock %}
+{% block post_script %}
+  <script>
+    (() => {
+      const ctx = document.getElementById('daily_chart');
+      const labels = {{ dl|safe }};
+      const values = {{ dv|safe }};
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: '{% translate "Recent Daily Hours" %}',
+          data: values,
+          fill: false,
+          borderColor: 'rgb(108,212,255)',
+          pointBorderColor: 'rgb(108,212,255)',
+          pointBackgroundColor: 'rgb(250, 240, 202)',
+          pointRadius: 5,
+          tension: 0.1
+        }]
+      };
+      new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+          aspectRatio: 2.5,
+          plugins: {
+            legend: {
+              labels: {
+                boxWidth: 0,
+                font: {
+                  size: 18,
+                },
+              },
+            },
+          },
+        },
+      });
+    })();
+
+    (() => {
+      const ctx = document.getElementById('weekly_chart');
+      const labels = {{ wl|safe }};
+      const values = {{ wv|safe }};
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: '{% translate "Recent Weekly Hours" %}',
+          data: values,
+          fill: false,
+          borderColor: 'rgb(255,159,178)', // line color salmon
+          pointBorderColor: 'rgb(255,159,178)',
+          pointBackgroundColor: 'rgb(250, 240, 202)',
+          pointRadius: 5,
+          tension: 0.1
+        }]
+      };
+      new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+          aspectRatio: 2.5,
+          plugins: {
+            legend: {
+              labels: {
+                boxWidth: 0,
+                font: {
+                  size: 18,
+                },
+              },
+            },
+          },
+        },
+      });
+    })();
+  </script>
 {% endblock %}

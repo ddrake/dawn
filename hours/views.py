@@ -148,17 +148,14 @@ class AllHoursCSVView(View):
         return response
 
 def send_user_instructions(request, user_id):
-    success = False
-    try:
-        user = User.objects.get(pk=user_id)
-        from hours.scripts.email_preset_users import send_single_email
-        send_single_email(user) 
+
+    user = User.objects.get(pk=user_id)
+    from hours.scripts.email_preset_users import send_single_email
+    success = send_single_email(user)
+    if success:
         profile = user.profile
         profile.help_emailed = 'Y'
         profile.save()
-        success = True
-    except Exception:
-        pass
 
     is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
     if is_ajax:

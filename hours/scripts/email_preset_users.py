@@ -7,6 +7,7 @@ email_preset_users.send_emails(is_test=True)
 """
 
 from django.contrib.auth.models import User
+from dawn.email.brevo_email import sendmail
 
 
 def send_single_email(user):
@@ -30,19 +31,4 @@ To make this as simple as possible, we have pre-registered you by creating a pro
 
 Thank you for your continued support!"""
 
-    user.email_user(subject, body, from_email="webmaster@dawnus.app")
-
-
-def send_email(username=None):
-    '''
-    sample usage: 
-        send_email()  # sends to all users
-        send_email(username="some username")
-        send_email(username="dadmin")
-    '''
-    if username is not None:
-        user = User.objects.get(username=username)
-        send_single_email(user)
-    else:
-        for user in User.objects.filter(is_active=True):
-            send_single_email(user)
+    return sendmail(user.email, subject, text=body)

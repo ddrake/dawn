@@ -28,11 +28,12 @@ function ajax_call(url, element) {
        return response.json()
   })
   .then(data => {
-    if (data) {
+    console.log(data)
+    if (data && data.result) {
       const td = element.parentElement.nextElementSibling;
       td.innerText = 'Y';
     }
-    alert(data ? "The user was notified!" : "Notification failed!");
+    alert(data && data.result ? "The user was notified!" : "Notification failed!");
   });
 }
 

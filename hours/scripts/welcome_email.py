@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from dawn.email.brevo_email import sendmail
 
 
-def send_single_email(user):
+def send_welcome_email(user):
     subject = "Instructions for logging in to DAWN volunteer hours app"
 
     body = f"""Hi {user.first_name},

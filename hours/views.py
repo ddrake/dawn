@@ -150,8 +150,8 @@ class AllHoursCSVView(View):
 def send_user_instructions(request, user_id):
 
     user = User.objects.get(pk=user_id)
-    from hours.scripts.email_preset_users import send_single_email
-    success = send_single_email(user)
+    from hours.scripts.welcome_email import send_welcome_email
+    success = send_welcome_email(user)
     if success:
         profile = user.profile
         profile.help_emailed = 'Y'

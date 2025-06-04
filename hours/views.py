@@ -48,10 +48,6 @@ class HoursCreateView(LoginRequiredMixin, CreateView):
     template_name = 'hours/form.html'
     success_url = reverse_lazy('hours_list')
 
-    def test_func(self):
-        obj = self.get_object()
-        return self.request.user == obj.user
-
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs.update({'language':

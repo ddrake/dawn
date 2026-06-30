@@ -1,13 +1,13 @@
-asgiref==3.8.1
+asgiref==3.11.1
 -e git+https://github.com/LewisFletcher/crispy-tailwind.git@7cd37dc356ae9153813183fdcb8c7c295c5317d6#egg=crispy_tailwind
-Django==5.1.15
-django-browser-reload==1.15.0
-django-crispy-forms==2.3
-django-tailwind==3.8.0
-gunicorn==23.0.0
-packaging==24.1
-psycopg2==2.9.9
-sqlparse==0.5.4
-typing_extensions==4.12.2
-django-impersonate==1.9.4
+Django==6.0.5
+django-browser-reload==1.21.0
+django-crispy-forms==2.6
+django-tailwind==4.4.2
+gunicorn==26.0.0
+packaging==26.2
+psycopg2==2.9.12
+sqlparse==0.5.5
+typing_extensions==4.15.0
+django-impersonate==1.9.5
 brevo-python==1.1.2

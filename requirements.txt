@@ -7,7 +7,7 @@ django-tailwind==4.4.2
 gunicorn==26.0.0
 packaging==26.2
 psycopg2==2.9.12
-sqlparse==0.5.5
+sqlparse==0.6.0
 typing_extensions==4.15.0
 django-impersonate==1.9.5
 brevo-python==1.1.2
